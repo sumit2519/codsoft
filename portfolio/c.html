@@ -1,0 +1,33 @@
+<%@ page import="javax.servlet.http.HttpSession" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Page Visit Counter</title>
+</head>
+<body>
+
+<%
+    // Get the session object
+    HttpSession session = request.getSession();
+
+    // Get the visit count from the session
+    Integer visitCount = (Integer) session.getAttribute("visitCount");
+
+    // If it's the first visit, initialize the count to 1
+    if (visitCount == null) {
+        visitCount = 1;
+    } else {
+        // If not the first visit, increment the count
+        visitCount++;
+    }
+
+    // Set the updated count back to the session
+    session.setAttribute("visitCount", visitCount);
+%>
+
+<h1>Welcome to the Page</h1>
+<p>This page has been visited <%= visitCount %> time(s) in this session.</p>
+
+</body>
+</html>

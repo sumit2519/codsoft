@@ -1,0 +1,23 @@
+/* Apply style to odd rows */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+tr:nth-child(odd) {
+    background-color: yellow;
+}
+
+/* Apply style to the header row */
+th {
+    background-color: black;
+    color: white;
+    padding: 10px;
+}
+
+/* Apply style to all other cells in the table */
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
